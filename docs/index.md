@@ -1,34 +1,43 @@
 # Welcome to HEAT 🔥
 **Heterogeneous Embedded Acceleration Toulouse**
 
-Let's be honest: who hasn't spent three months trying to run a simple "Hello World" on a new board, leaving only three months for actual research?
+> **The Hardware Acceleration Paradox:** You spend three months running a "Hello World" on a new board, leaving only three months for actual research. 
 
-Between incomplete official documentation, tutorials that worked perfectly last year but crash today, and endless hours crawling obscure forums, the barrier to entry for hardware acceleration is simply too high.
+Official documentations are often 1000-page PDFs or tutorials that worked "last year". **HEAT** is the community-driven shortcut to bypass the pain and get straight to the science.
 
 ## 🎯 The Mission: Accelerate "Time-to-Research"
 
-**HEAT** is a community-driven hub for anyone building and deploying embedded compute, from FIR filters and image processing to neural networks, on anything from microcontrollers to Jetson GPUs and FPGAs.
+We centralize **Survival Guides** for FPGAs (Xilinx/Intel), GPUs (Jetson), custom accelerators (VTA, Gemmini) and more... **No fluff, just what *actually* compiles.**
 
-Our goal is simple: **stop reinventing the wheel and share what actually works.**
+* **[🚀 Quickstarts](quickstarts/vek280-setup.md):** Environment setups and build scripts that don't crash.
+* **[🛠️ Field Notes (REX)](rex/template.md):** The "dirty" details: AXI DMA alignment issues, memory leaks, and undocumented workarounds.
+* **[🔬 Projects & Code](projects.md):** Open-source frameworks driven by the Toulouse ecosystem.
+* **[📚 Resources](talks.md):** Meetup archives and curated external tutorials.
+* **[👥 Community](directory.md):** Who is working on what in Toulouse. Stop struggling alone.
 
-Here, we don't copy-paste official documentation. We centralize the survival guides:
+## 🤝 Stop struggling alone. Contribute!
 
-* **[Quickstarts & Setup](quickstarts/vek280-setup.md):** Environment setups, quantization pipelines, and build scripts that *actually* compile.
-* **[Field Reports (REX)](rex/template.md):** Problems encountered and their workarounds. The dirty details of deploying models when the manuals fail.
-* **[Projects & Code](projects.md):** A curated list of open-source frameworks and hardware implementations driven by the HEAT community.
-* **[Talks & Resources](talks.md):** Archives of past HEAT meetups, seminars, and recommended external tutorials.
-* **[Community Directory](directory.md):** A map of the hardware ecosystem. Know who is working on what, and who to ping when you are stuck.
+Did you just spend three days debugging a Vivado timing closure or a TensorRT quantization bug? **Document it in 5 minutes and save the next researcher a week of their life.**
 
-## 🤝 Stop struggling alone. Contribute.
+### 📝 How to help?
 
-Did you just spend four days debugging an AXI DMA alignment issue or a TensorRT memory leak? 
+!!! info "Edit an existing page"
+    Click the ✏️ icon (top right) of any page, modify the text, and click **"Propose changes"**.
 
-Document it here. Click the ✏️ icon at the top right of any page to submit a Pull Request. Save the next researcher a week of their life.
+!!! success "Add a new Resource (REX, Quickstart...)"
+    1. **Pick a template:** Open our [REX Template](rex/template.md) or [Quickstart Template](quickstarts/template.md).
+    2. Click the ✏️ icon (top right).
+    3. **Copy the Markdown content.**
+    4. **Create the file:** Click the `+` icon (top left).
+    4. Paste the content, name your file (e.g., `jetson-setup.md`), modify the text, and click **"Propose changes"**.
+
+!!! tip "Safe & Secure"
+    **Don't worry about breaking anything.** Your changes won't go live immediately. Our team will review your contribution, check the links, and ensure everything is solid before merging it into the main site.
 
 ## 📅 Stay Tuned
 
-Stay in the loop: [Subscribe here](#) to get notified about our bi-annual local meetups.
+**Next Meetup:** Spring 2026 (Toulouse).
+[Subscribe to the mailing list](#) | [Join the community directory](directory.md)
 
 ---
-
 *HEAT - Born in Toulouse, open to the world*

@@ -1,8 +1,8 @@
 site_name: HEAT - Heterogeneous Embedded Acceleration Toulouse
 site_description: HEAT - The Embedded Research Hub.
-site_url: https://toulouse-embedded-acceleration.github.io/HEAT/
+site_url: https://toulouse-embedded-accel.github.io/HEAT/
 repo_url: https://github.com/Toulouse-Embedded-Accel/HEAT
-repo_name: Edit on GitHub (Add a Page)
+repo_name: GitHub
 edit_uri: edit/main/docs/
 
 theme:
@@ -30,6 +30,7 @@ theme:
     - navigation.top
     - content.code.copy
     - content.action.edit
+    - navigation.expand
 
 nav:
   - Welcome to HEAT: index.md
@@ -38,6 +39,7 @@ nav:
   - 🛠️ Field Notes (REX):
     - 'Contribute a REX': rex/template.md
     - 'Versal VEK280 Boot Issue': rex/vek280-boot-issue.md
+    - 'Versal VEK280 Power Issue': rex/vek280-power-failure.md
   - 🔬 Projects & Code: projects.md
   - 📚 Talks & Resources: talks.md
   - 👥 Community Directory: directory.md
