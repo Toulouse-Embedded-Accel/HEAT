@@ -11,6 +11,7 @@ Trying to execute the [Vitis-AI 3.5 quickstart guide](https://xilinx.github.io/V
 
 ## ⚙️ Environment
 * **Hardware:** AMD Versal VEK280 (rev B3)
+* **OS:** N/A
 * **Toolchain:** Vitis-AI 3.5
 
 ## 💥 The Problem
