@@ -1,0 +1,50 @@
+site_name: HEAT - Heterogeneous Embedded Acceleration Toulouse
+site_description: HEAT - The Embedded Research Hub.
+site_url: https://toulouse-embedded-acceleration.github.io/HEAT/
+repo_url: https://github.com/Toulouse-Embedded-Accel/HEAT
+repo_name: Edit on GitHub (Add a Page)
+edit_uri: edit/main/docs/
+
+theme:
+  name: material
+  language: en
+  palette: 
+    # Light theme
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: red
+      accent: pink
+      toggle:
+        icon: material/brightness-7 
+        name: Switch to dark mode
+    # Dark theme
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: red
+      accent: pink
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - navigation.tabs
+    - navigation.top
+    - content.code.copy
+    - content.action.edit
+
+nav:
+  - Welcome to HEAT: index.md
+  - 🚀 Quickstarts & Setup:
+    - 'Versal VEK280': quickstarts/vek280-setup.md
+  - 🛠️ Field Notes (REX):
+    - 'Contribute a REX': rex/template.md
+    - 'Versal VEK280 Boot Issue': rex/vek280-boot-issue.md
+  - 🔬 Projects & Code: projects.md
+  - 📚 Talks & Resources: talks.md
+  - 👥 Community Directory: directory.md
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight:
+      anchor_linenums: true
