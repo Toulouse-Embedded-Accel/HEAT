@@ -1,3 +1,4 @@
 nav:
-  - template.md
+  - Overview: index.md
+  - '➕ Contribute a REX': template.md
   - ... # Alphabetic order
