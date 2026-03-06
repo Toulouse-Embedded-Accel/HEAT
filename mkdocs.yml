@@ -34,15 +34,15 @@ theme:
 
 nav:
   - Welcome to HEAT: index.md
-  - 🚀 Quickstarts & Setup:
-    - 'Versal VEK280': quickstarts/vek280-setup.md
-  - 🛠️ Field Notes (REX):
-    - 'Contribute a REX': rex/template.md
-    - 'Versal VEK280 Boot Issue': rex/vek280-boot-issue.md
-    - 'Versal VEK280 Power Issue': rex/vek280-power-failure.md
+  - 🚀 Quickstarts & Setup: quickstarts/
+  - 🛠️ Field Notes (REX): rex/
   - 🔬 Projects & Code: projects.md
   - 📚 Talks & Resources: talks.md
   - 👥 Community Directory: directory.md
+
+plugins:
+  - search
+  - awesome-pages
 
 markdown_extensions:
   - admonition
