@@ -1,4 +1,4 @@
-# VEK280 Power Cycle: Failure to Reboot After Initial Success
+# AMD VEK280 Power Failure
 
 **Author:** Julien Posso (ONERA)
 
@@ -22,8 +22,8 @@ The board stays dead when toggling SW13 to ON. This occurs specifically after a 
 
 ## 💡 The Workaround / Solution
 !!! success "The Fix: 30s Cold Boot"
-    1. **Disconnect USB** and **Unplug Power Cable**.
-    2. Toggle **SW13 to OFF**.
+    1. Toggle **SW13 to OFF**.
+    2. **Disconnect USB** and **Unplug Power Cable**.
     3. **Wait 30 seconds** (essential for capacitor discharge).
     4. Reconnect cables and toggle **SW13 to ON**.
 
