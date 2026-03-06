@@ -15,7 +15,7 @@ Trying to execute the [Vitis-AI 3.5 quickstart guide](https://xilinx.github.io/V
 * **Toolchain:** Vitis-AI 3.5
 
 ## 💥 The Problem
-The board does not boot from the micro SD card. The Versal UART0 terminal remains completely black (shows nothing).
+The board does not boot from the micro SD card. The Versal UART0 terminal remains completely black (shows nothing), while the cooling fan consistently runs at maximum RPM.
 
 !!! failure "The Root Cause"
     Vitis-AI 3.5 is deprecated and strictly incompatible with Versal production boards (like the VEK280 rev B3). However, as of early 2026, the 3.5 documentation is still the top result referenced on Google, leading to massive losses of time.
