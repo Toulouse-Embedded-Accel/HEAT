@@ -31,6 +31,7 @@ theme:
     - content.code.copy
     - content.action.edit
     - navigation.expand
+    - navigation.sections
 
 nav:
   - Welcome to HEAT: index.md
