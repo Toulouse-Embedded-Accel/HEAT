@@ -1,4 +1,4 @@
-# AMD VEK280 Boot Issue: Black UART0 Terminal
+# AMD VEK280 Boot Issue
 
 **Author:** Julien Posso (ONERA)
 
