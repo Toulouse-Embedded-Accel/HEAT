@@ -33,14 +33,6 @@ theme:
     - navigation.expand
     - navigation.sections
 
-nav:
-  - Welcome to HEAT: index.md
-  - 🚀 Quickstarts & Setup: quickstarts/
-  - 🛠️ Field Notes (REX): rex/
-  - 🔬 Projects & Code: projects.md
-  - 📚 Talks & Resources: talks.md
-  - 👥 Community Directory: directory.md
-
 plugins:
   - search
   - awesome-pages
