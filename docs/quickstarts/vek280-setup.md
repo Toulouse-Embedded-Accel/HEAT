@@ -8,8 +8,8 @@ This guide supplements the official AMD documentation by providing a high-level 
 
 ## 🔗 Useful Resources
 * 📺 [Official VEK280 Unboxing & Setup Video](https://www.youtube.com/watch?v=N3ZAhXxo-4s)
-* 🛠️ [REX: Known VEK280 Boot Issues](../rex/vek280-boot-issue.md)
-* 🛠️ [REX: Known VEK280 Power Failure](../rex/vek280-power-failure.md)
+* 🛠️ [Field Note: Known VEK280 Boot Issues](../notes/vek280-boot-issue.md)
+* 🛠️ [Field note: VEK280 Power Failure](../notes/vek280-power-failure.md)
 
 ## 🧠 Understanding the Dual-System Architecture
 Unlike Zynq boards, the Versal features **two distinct SoCs** running in parallel:

@@ -4,7 +4,7 @@
 
 **Date:** 2026-03
 
-**Tags:** `AMD-Versal` `VEK280` `QuickStart` `Vitis-AI`
+**Tags:** `Troubleshooting` `AMD-Versal` `VEK280` `QuickStart` `Vitis-AI`
 
 ## 🎯 The Goal
 Trying to execute the [Vitis-AI 3.5 quickstart guide](https://xilinx.github.io/Vitis-AI/3.5/html/docs/quickstart/vek280.html) on a new board.

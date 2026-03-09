@@ -4,7 +4,7 @@
 
 **Date:** 2026-03
 
-**Tags:** `VEK280` `Hardware` `Boot` `Power-Sequencing` `Versal`
+**Tags:** `Troubleshooting` `AMD-Versal` `VEK280` `Hardware` `Boot` `Power-Sequencing`
 
 ## 🎯 The Goal
 Successfully boot the board using the physical power switch (SW13) (OFF -> ON) after a previous session.

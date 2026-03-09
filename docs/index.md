@@ -10,7 +10,7 @@ Official documentations are often 1000-page PDFs or tutorials that worked "last 
 We centralize **Survival Guides** for FPGAs (Xilinx/Intel), GPUs (Jetson), custom accelerators (VTA, Gemmini) and more... **No fluff, just what *actually* compiles.**
 
 * **[🚀 Quickstarts](quickstarts/vek280-setup.md):** Environment setups and build scripts that don't crash.
-* **[🛠️ Field Notes (REX)](rex/template.md):** The "dirty" details: AXI DMA alignment issues, memory leaks, and undocumented workarounds.
+* **[🛠️ Field Notes](notes/template.md):** The "dirty" details: AXI DMA alignment issues, memory leaks, and undocumented workarounds.
 * **[🔬 Projects & Code](projects.md):** Open-source frameworks driven by the Toulouse ecosystem.
 * **[📚 Resources](talks.md):** Meetup archives and curated external tutorials.
 * **[👥 Community](directory.md):** Who is working on what in Toulouse. Stop struggling alone.
@@ -24,8 +24,8 @@ Did you just spend three days debugging a Vivado timing closure or a TensorRT qu
 !!! info "Edit an existing page"
     Click the ✏️ icon (top right) of any page, modify the text, and click **"Propose changes"**.
 
-!!! success "Add a new Resource (REX, Quickstart...)"
-    1. **Pick a template:** Open our [REX Template](rex/template.md) or [Quickstart Template](quickstarts/template.md).
+!!! success "Add a new Resource (Field Note, Quickstart...)"
+    1. **Pick a template:** Open our [Field Note Template](notes/template.md) or [Quickstart Template](quickstarts/template.md).
     2. Click the ✏️ icon (top right).
     3. **Copy the Markdown content.**
     4. **Create the file:** Click the `+` icon (top left).
