@@ -2,12 +2,13 @@
 
 **Author:** Julien Posso (ONERA)  
 **Date:** 2026-03  
-**Tags:** `VEK280 Rev. B3` `Versal` `Setup` `Hardware`
+**Tags:** `AMD-Versal` `VEK280` `Quickstart` `Getting Started` `Setup`
 
 This guide supplements the official AMD documentation by providing a high-level system view necessary to avoid common pitfalls during initial setup.
 
 ## 🔗 Useful Resources
-* 📺 [Official VEK280 Unboxing & Setup Video](https://www.youtube.com/watch?v=N3ZAhXxo-4s)
+* 📺 [Official VEK280 Introduction Video](https://www.youtube.com/watch?v=N3ZAhXxo-4s)
+* * 📖 [Official VEK280 Board User Guide (UG1612)](https://docs.amd.com/r/en-US/ug1612-vek280-eval-bd)
 * 🛠️ [Field Note: Known VEK280 Boot Issues](../notes/vek280-boot-issue.md)
 * 🛠️ [Field note: VEK280 Power Failure](../notes/vek280-power-failure.md)
 
@@ -20,26 +21,32 @@ Unlike Zynq boards, the Versal features **two distinct SoCs** running in paralle
     * **Interface:** Has its own dedicated Ethernet port and UART.
 2.  **Versal MPSoC (Main Target):**
     * **Role:** The primary processor for your research, AI engines, and custom logic.
-    * **Boot:** Typically boots from the **SD Card**. It also handles fan speed control.
+    * **Boot:** Typically boots from **JTAG** or the **SD Card**. It also handles fan speed control.
 
 ---
 
 ## 🏁 Versal First Boot
 
 !!! warning "Note on the 'In-Box' Quickstart"
-    The QR code provided in the box (linking to [amd.com/vek280-start](http://www.amd.com/vek280-start)) points to a guide that requires an **MRMAC daughter card**. This guide only partially relies on it.
+    The QR code provided in the box (linking to [amd.com/vek280-start](http://www.amd.com/vek280-start)) points to a guide that contains a MRMAC Example Design. This design requires an **FMC card** which is not provided with the standard VEK280 Evaluation Kit.
 
 ### 🛠️ SD Card Preparation
 
 1.  **Download** the official VEK280 SD Image (`.wic`) which contains the board platform (e.g., [v2025.1 SD Image](https://www.xilinx.com/member/forms/download/xef.html?filename=xilinx-v2025.1_vek280_sdimage.zip)).
 2.  **Unzip** the downloaded archive.
-3.  **Flash** using **Balena Etcher** to write the WIC image to your micro SD card.
+3.  **Flash** using **[Balena Etcher](https://etcher.balena.io/)** to write the WIC image to your micro SD card.
+
+**Tips for using Balena Etcher on Linux:**
+1. Download the x64 (64-bit) (zip) version.
+2. Extract it and navigate to the `balenaEtcher-linux-x64` folder.
+3. Launch the application from a terminal with: `./balena-etcher --no-sandbox`
+4. Superuser authentication will be required to flash the card.
 
 ### 🔌 Hardware Setup
 ![Standard VEK280 setup](https://vitisai.docs.amd.com/en/latest/_images/target_board_updated.png)
 
 Follow the standard setup, noting these specific connections:
-* **Ethernet:** Connect to the port located at the **top right** of the board (facing a switch or your computer).
+* **Ethernet:** Connect to the port located at the **top right** of the board (System Controller Ethernet) instead of the bottom-left shown in the image above (Versal Ethernet),facing a switch or your computer.
 * **USB:** Connecting the board's USB port to your computer will reveal **3 COM ports**:
     * **Port N (Interface 0):** Versal UART0 – User Linux (SD Boot).
     * **Port N+1 (Interface 1):** Versal UART1 via PL – Unused for now.
@@ -59,7 +66,9 @@ Follow the standard setup, noting these specific connections:
 * **System Controller (COM N+2):** Choose your preferred credentials.
 * **Versal UART (COM N):** Use the default Petalinux credentials:
     * **Username:** `petalinux`
-    * **Password:** `petalinux` (you may be prompted to change it on first login).
+    * **Password:** Choose your password at the first prompt.
+
+---
 
 ## 🔍 Diagnostic Tool: BEAM
 
@@ -78,10 +87,15 @@ If the System Controller fails to get an IP via DHCP, you must set a static IPv4
     Name=eth0
 
     [Network]
-    Address=192.168.225.173/16
-    Gateway=192.168.90.100
+    Address=192.168.1.173/24
+    Gateway=192.168.1.1
     ConfigureWithoutCarrier=yes
     ```
+    !!! tip "Quick VI Tutorial"
+        1. Press **"i"** to enter insert mode.
+        2. Edit your file.
+        3. Press **Escape** to return to command mode.
+        4. Type **":wq"** and press Enter to save and exit.
 3.  Restart the System Controller:
     ```bash
     sudo reboot
@@ -94,9 +108,12 @@ In the BEAM web interface, under **"Test the Board"**:
 
 * **Board Settings:** Manage GPIOs, clocks, FMC, and read real-time voltage/power consumption (e.g., `VCC_INT`).
 * **Board Interface Test:** Essential for new boards. It tests LEDs, switches, etc.
-* **⚠️ Important (Buttons Test):** Instructions (e.g., *"Press SWx"*) are displayed on the **Versal UART (COM N)**. If you are not watching that terminal, the test will appear to hang or fail.
 
-!!! tip "Expert Advice"
-    Always keep the **Versal UART (Port COM N)** window visible while using BEAM to avoid missing critical interactive prompts.
+!!! warning "Important information"
+    Instructions (e.g., *"Press SWx"*) are displayed on the **Versal UART (COM N)**. If you are not watching that terminal, some tests will appear to hang or fail.
 
+---
 
+## 🚀 Next Steps
+Once your board is running, learn how to deploy AI models:
+* [Official Vitis-AI Documentation](https://vitisai.docs.amd.com/en/latest/index.html)
