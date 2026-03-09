@@ -8,7 +8,7 @@ This guide supplements the official AMD documentation by providing a high-level 
 
 ## 🔗 Useful Resources
 * 📺 [Official VEK280 Introduction Video](https://www.youtube.com/watch?v=N3ZAhXxo-4s)
-* * 📖 [Official VEK280 Board User Guide (UG1612)](https://docs.amd.com/r/en-US/ug1612-vek280-eval-bd)
+* 📖 [Official VEK280 Board User Guide (UG1612)](https://docs.amd.com/r/en-US/ug1612-vek280-eval-bd)
 * 🛠️ [Field Note: Known VEK280 Boot Issues](../notes/vek280-boot-issue.md)
 * 🛠️ [Field note: VEK280 Power Failure](../notes/vek280-power-failure.md)
 
@@ -32,7 +32,7 @@ Unlike Zynq boards, the Versal features **two distinct SoCs** running in paralle
 
 ### 🛠️ SD Card Preparation
 
-1.  **Download** the official VEK280 SD Image (`.wic`) which contains the board platform (e.g., [v2025.1 SD Image](https://www.xilinx.com/member/forms/download/xef.html?filename=xilinx-v2025.1_vek280_sdimage.zip)).
+1.  **Download** the official VEK280 SD pre-built Image (`.wic`) which contains the board platform: tested with [v2025.1 SD Image](https://www.xilinx.com/member/forms/download/xef.html?filename=xilinx-v2025.1_vek280_sdimage.zip); [other versions available here](https://xilinx-wiki.atlassian.net/wiki/spaces/A/pages/18842316)).
 2.  **Unzip** the downloaded archive.
 3.  **Flash** using **[Balena Etcher](https://etcher.balena.io/)** to write the WIC image to your micro SD card.
 
@@ -46,6 +46,7 @@ Unlike Zynq boards, the Versal features **two distinct SoCs** running in paralle
 ![Standard VEK280 setup](https://vitisai.docs.amd.com/en/latest/_images/target_board_updated.png)
 
 Follow the standard setup, noting these specific connections:
+
 * **Ethernet:** Connect to the port located at the **top right** of the board (System Controller Ethernet) instead of the bottom-left shown in the image above (Versal Ethernet),facing a switch or your computer.
 * **USB:** Connecting the board's USB port to your computer will reveal **3 COM ports**:
     * **Port N (Interface 0):** Versal UART0 – User Linux (SD Boot).
@@ -100,7 +101,7 @@ If the System Controller fails to get an IP via DHCP, you must set a static IPv4
     ```bash
     sudo reboot
     ```
-Once rebooted, the BEAM URL should be accessible: 
+Once rebooted, the BEAM URL should be accessible from a browser: 
 > **🔗 BEAM Web Address:** `http://<your_ip>:50002`
 
 ### ✅ Running the Tests
@@ -116,4 +117,5 @@ In the BEAM web interface, under **"Test the Board"**:
 
 ## 🚀 Next Steps
 Once your board is running, learn how to deploy AI models:
+
 * [Official Vitis-AI Documentation](https://vitisai.docs.amd.com/en/latest/index.html)
