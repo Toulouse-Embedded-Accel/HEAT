@@ -32,11 +32,12 @@ Unlike Zynq boards, the Versal features **two distinct SoCs** running in paralle
 
 ### 🛠️ SD Card Preparation
 
-1.  **Download** the official VEK280 SD pre-built Image (`.wic`) which contains the board platform: tested with [v2025.1 SD Image](https://www.xilinx.com/member/forms/download/xef.html?filename=xilinx-v2025.1_vek280_sdimage.zip); [other versions available here](https://xilinx-wiki.atlassian.net/wiki/spaces/A/pages/18842316)).
+1.  **Download** the official VEK280 SD pre-built Image (`.wic`) which contains the board platform: tested with [v2025.1 SD Image](https://www.xilinx.com/member/forms/download/xef.html?filename=xilinx-v2025.1_vek280_sdimage.zip); other versions available [here](https://xilinx-wiki.atlassian.net/wiki/spaces/A/pages/18842316).
 2.  **Unzip** the downloaded archive.
 3.  **Flash** using **[Balena Etcher](https://etcher.balena.io/)** to write the WIC image to your micro SD card.
 
 **Tips for using Balena Etcher on Linux:**
+
 1. Download the x64 (64-bit) (zip) version.
 2. Extract it and navigate to the `balenaEtcher-linux-x64` folder.
 3. Launch the application from a terminal with: `./balena-etcher --no-sandbox`
@@ -64,6 +65,7 @@ Follow the standard setup, noting these specific connections:
     * **Prompt:** You should reach a login prompt on both COM N and COM N+2.
 
 **Credentials:**
+
 * **System Controller (COM N+2):** Choose your preferred credentials.
 * **Versal UART (COM N):** Use the default Petalinux credentials:
     * **Username:** `petalinux`
