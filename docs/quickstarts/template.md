@@ -45,11 +45,14 @@ conda activate my_env
 ??? info "Deep Dive: Understanding the log output (Collapsible)"
     If you want to understand what the underlying script is doing, here is a breakdown of the logs:
 
+    ```text
+    [0.000000] Booting Linux on physical CPU 0x0000000000 [0x410fd034]
+    [0.000000] Linux version 6.1.5-xilinx-v2023.2
+    [0.000000] Machine model: AMD Versal v2023.2
+    ...
     ```
     * **Step A:** Initialization of the AXI DMA.
     * **Step B:** Memory allocation in the DDR.
-    * **Step C:** Triggering the FPGA bitstream loading.
-    ```
 
 ---
 
