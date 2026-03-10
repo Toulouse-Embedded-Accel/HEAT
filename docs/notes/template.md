@@ -1,4 +1,4 @@
-# [Title: Keep it specific, e.g., FINN Quantization Crash on VEK280]
+# 🛠️ [Short title]
 
 **Author:** [Your Name] ([Affiliation])
 

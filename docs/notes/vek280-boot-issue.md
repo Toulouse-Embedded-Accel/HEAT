@@ -1,4 +1,4 @@
-# AMD VEK280 Boot Issue
+# 🛠️ AMD VEK280 Boot Issue
 
 **Author:** Julien Posso (ONERA)
 

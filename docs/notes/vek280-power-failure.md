@@ -1,4 +1,4 @@
-# AMD VEK280 Power Failure
+# 🛠️ AMD VEK280 Power Failure
 
 **Author:** Julien Posso (ONERA)
 
