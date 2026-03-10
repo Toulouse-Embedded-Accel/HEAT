@@ -14,6 +14,7 @@ We centralize **Survival Guides** for FPGAs (Xilinx/Intel), GPUs (Jetson), custo
 * **[🔬 Projects & Code](projects.md):** Open-source frameworks driven by the Toulouse ecosystem.
 * **[📚 Resources](talks.md):** Meetup archives and curated external tutorials.
 * **[👥 Community](directory.md):** Who is working on what in Toulouse. Stop struggling alone.
+* **[💬 GitHub Discussions](https://github.com/Toulouse-Embedded-Accel/HEAT/discussions)**: Ask questions, share tips, and brainstorm with the community.
 
 ## 🤝 Stop struggling alone. Contribute!
 
@@ -34,10 +35,13 @@ Did you just spend three days debugging a Vivado timing closure or a TensorRT qu
 !!! tip "Safe & Secure"
     **Don't worry about breaking anything.** Your changes won't go live immediately. Our team will review your contribution, check the links, and ensure everything is solid before merging it into the main site.
 
+!!! help "Stuck or just want to chat?"
+    Not ready to write a full guide yet? Join the conversation on our [GitHub Discussions](https://github.com/Toulouse-Embedded-Accel/HEAT/discussions). It's the best place to ask for help or brainstorm new ideas.
+
 ## 📅 Stay Tuned
 
 **Next Meetup:** Spring 2026 (Toulouse).
-[Subscribe to the mailing list](#) | [Join the community directory](directory.md)
+[Subscribe to the mailing list](#) | [Join the community directory](directory.md) | [GitHub Discussions](https://github.com/Toulouse-Embedded-Accel/HEAT/discussions)
 
 ---
 *HEAT - Born in Toulouse, open to the world*
