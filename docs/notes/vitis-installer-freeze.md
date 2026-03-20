@@ -28,33 +28,37 @@ application-specific initialization failed: couldn't load file "libxv_commontask
 ```
 
 ## 💡 The Workaround / Solution
-Do not reinstall or delete the downloaded files. The physical installation is already complete. You simply need to kill the zombie process to unblock the GUI, and install the missing legacy dependencies on your host OS.
+Since the installer was interrupted before generating crucial environment scripts (like `settings64.sh`) and system registry keys, you cannot keep this broken installation. You must resolve the dependency issue at the OS level, clean up the corrupted directory, and run the installer again.
 
-!!! success "The Fix: Install the missing dependencies"
-    1. Identify and kill the frozen unwrapped `vivado` process. This will force the GUI to gracefully finish the installation sequence.
-    2. Install `libtinfo5` and `libncurses5` via your package manager.
-    3. Verify the installation by running the failing TCL script manually.
+!!! success "The Fix: Install missing libraries and reinstall"
+    **1. Kill the frozen installer**
+    Forcefully close the GUI or kill the underlying Java process to unlock your terminal.
+    ```bash
+    # WARNING: This kills all Java apps (e.g., Eclipse, IntelliJ) running in your session
+    killall -9 java
+    ```
 
-```bash
-# 1. Find the PID of the frozen unwrapped vivado binary and kill it
-ps auxf | grep -E "vivado.*xlpartinfo"
-# Look for the deepest child process (e.g., .../unwrapped/lnx64.o/vivado)
-kill -9 <PID>
-# The GUI installer should now unfreeze. You can safely click "Finish".
-# If that's not the case, forcefully close the installer (WARNING: This kills all Java apps like Eclipse/IntelliJ)
-killall -9 java
+    **2. Install the missing legacy libraries**
+    Update your system and install the required `ncurses` packages.
+    ```bash
+    sudo apt update
+    sudo apt install libtinfo5 libncurses5
+    ```
+    Alternative: if you are using the Single-File Download (SFD), you can use the AMD script (2023.2 and above).
+    ```bash
+    cd <untarred_location>/FPGAs_AdaptiveSoCs_Unified_202x.x_*/
+    sudo ./installLibs.sh
+    ```
 
-# 2. Install the missing legacy libraries
-sudo apt update
-sudo apt install libtinfo5 libncurses5
+    **3. Purge the incomplete installation**
+    Wipe the corrupted files so you can start fresh.
+    ```bash
+    # Example if installed in /opt
+    sudo rm -rf /opt/Xilinx/2025.2
+    ```
 
-# 3. Verify the fix by manually running the background task
-# Note: Adjust the /opt/Xilinx/2025.2/ path if your installation directory or tool version differs.
-/opt/Xilinx/2025.2/Vivado/bin/vivado -nolog -nojournal -mode batch -source /opt/Xilinx/2025.2/Vivado/scripts/sysgen/tcl/xlpartinfo.tcl -tclargs /opt/Xilinx/2025.2/Vivado/data/parts/installed_devices.txt
-
-# If successful, the command will exit cleanly with:
-# INFO: [Common 17-206] Exiting Vivado...
-```
+    **4. Re-install**
+    [Link to the HEAT Quickstart Guide](../quickstarts/vitis-toolchain-setup.md)
 
 ## 🔗 References
 
