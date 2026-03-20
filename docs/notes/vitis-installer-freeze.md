@@ -4,7 +4,7 @@
 
 **Date:** 2026-03
 
-**Tags:** `Vivado` `Installation` `Linux` `libtinfo5` `Troubleshooting`
+**Tags:** `Vivado` `Vitis` `Installation` `Linux` `Troubleshooting`
 
 ## 🎯 The Goal
 Successfully install the AMD Unified FPGAs & Adaptive SoCs Installer (Vivado/Vitis 2025.2) on a modern Linux distribution.
