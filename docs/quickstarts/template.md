@@ -37,7 +37,7 @@ conda create -n my_env python=3.10
 conda activate my_env
 ```
 
-### 💻 Phase 3: First Run & Verification
+### 💻 First Run & Verification
 
 1.  **Command:** [Run the build/test script]
 2.  **Observation:** [What should the user see in the terminal or on the board?]
