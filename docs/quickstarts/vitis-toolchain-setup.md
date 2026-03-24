@@ -1,4 +1,4 @@
-# 🚀 Vitis Toolchain Setup
+# 🚀 Setup: AMD Vitis Toolchain
 
 **Author:** Julien Posso (ONERA)  
 **Date:** 2026-03  
