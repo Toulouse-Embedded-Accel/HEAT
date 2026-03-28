@@ -11,6 +11,12 @@
 * 📖 [Official Documentation](URL)
 * 🛠️ [Related Field Note](../notes/filename.md)
 
+## 📋 Prerequisites
+
+Before proceeding, ensure your development environment meets the necessary requirements. 
+
+* **Requirement 1:** [e.g., AMD Vitis Toolchain installed with USB drivers: [Setup Guide](vitis-toolchain-setup.md)]
+
 ## 🧠 System Overview
 [Briefly explain the architecture or the specific logic of this setup to give context before the commands.]
 
