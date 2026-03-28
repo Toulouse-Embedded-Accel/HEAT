@@ -12,6 +12,12 @@ This guide supplements the official AMD documentation by providing a high-level 
 * 🛠️ [Field Note: Known VEK280 Boot Issues](../notes/vek280-boot-issue.md)
 * 🛠️ [Field note: VEK280 Power Failure](../notes/vek280-power-failure.md)
 
+## 📋 Prerequisites
+
+Before proceeding with the board setup, it is mandatory to have your development environment ready. Without this, you will not be able to communicate with the board via UART or JTAG.
+
+* **Vitis & USB Drivers:** You must have the AMD Vitis Toolchain and the necessary USB/JTAG cable drivers installed. If you haven't done this yet, please follow our dedicated guide: [🚀 Setup: AMD Vitis Toolchain](vitis-toolchain-setup.md).
+
 ## 🧠 Understanding the Dual-System Architecture
 Unlike Zynq boards, the Versal features **two distinct SoCs** running in parallel:
 
