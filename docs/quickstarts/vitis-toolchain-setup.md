@@ -88,6 +88,7 @@ sudo usermod -a -G plugdev $USER
 - **AI Engine Tools License (Free):** Required `.lic` to target custom implementations on Versal AI engines.
 
 **3.\. Generate your licenses**:
+
 - Go to the [AMD Product Licensing website](https://amd.entitlenow.com/AcrossUser/main.gsp?). 
 - Free licenses are not shown in the default list. Click on *Search the Evaluation and No Charge cores* to add them. Select your required certificates, then click *Generate Node-Locked License*. The host ID information of your computer is available in the Vivado License Manager under *View Host Information*. If you closed it after installation, you can reopen it from your applications.
 - Download your `.lic` license and import it in the Vivado License Manager under the *Load License* section.
