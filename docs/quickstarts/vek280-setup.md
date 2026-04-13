@@ -65,7 +65,7 @@ Follow the standard setup, noting these specific connections:
     To avoid port shifting (e.g., `/dev/ttyUSB1` becoming `ttyUSB5`), use persistent paths `ls -l /dev/serial/by-path/`. Open your terminals with:
         * **Versal:** `tio /dev/serial/by-path/*-usb-0:*:1.1-port0`
         * **System Controller:** `tio /dev/serial/by-path/*-usb-0:*:1.3-port0`
-        *(Note: The suffix `:1.1` and `:1.3` matches the hardware Interface ID above).*
+        * *Note*: The suffix `:1.1` and `:1.3` matches the hardware Interface ID above.
 
 ### 💻 Power On and Login
 
