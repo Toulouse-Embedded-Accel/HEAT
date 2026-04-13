@@ -1,0 +1,1483 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="HEAT - The Embedded Research Hub.">
+      
+      
+      
+        <link rel="canonical" href="https://toulouse-embedded-accel.github.io/HEAT/quickstarts/vek280-setup/">
+      
+      
+        <link rel="prev" href="../template/">
+      
+      
+        <link rel="next" href="../vitis-toolchain-setup/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>🚀 Quickstart: AMD Versal VEK280 - HEAT - Heterogeneous Embedded Acceleration Toulouse</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="red" data-md-color-accent="pink">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#quickstart-amd-versal-vek280" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="HEAT - Heterogeneous Embedded Acceleration Toulouse" class="md-header__button md-logo" aria-label="HEAT - Heterogeneous Embedded Acceleration Toulouse" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            HEAT - Heterogeneous Embedded Acceleration Toulouse
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              🚀 Quickstart: AMD Versal VEK280
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="red" data-md-color-accent="pink"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="red" data-md-color-accent="pink"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Toulouse-Embedded-Accel/HEAT" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Welcome to HEAT
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+  
+  🚀 Quickstarts & Setup
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../notes/" class="md-tabs__link">
+          
+  
+  
+  🛠️ Field Notes
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../projects/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  🔬 Projects & Code
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../talks/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  📚 Talks & Resources
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../directory/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  👥 Community Directory
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="https://github.com/Toulouse-Embedded-Accel/HEAT/discussions" class="md-tabs__link">
+        
+  
+  
+    
+  
+  💬 Discussions
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="HEAT - Heterogeneous Embedded Acceleration Toulouse" class="md-nav__button md-logo" aria-label="HEAT - Heterogeneous Embedded Acceleration Toulouse" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    HEAT - Heterogeneous Embedded Acceleration Toulouse
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Toulouse-Embedded-Accel/HEAT" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Welcome to HEAT
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🚀 Quickstarts & Setup
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    🚀 Quickstarts & Setup
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../template/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ➕ Contribute a QuickStart/Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🚀 Quickstart: AMD Versal VEK280
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🚀 Quickstart: AMD Versal VEK280
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#useful-resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔗 Useful Resources
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📋 Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#understanding-the-dual-system-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🧠 Understanding the Dual-System Architecture
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#versal-first-boot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🏁 Versal First Boot
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🏁 Versal First Boot">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sd-card-preparation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🛠️ SD Card Preparation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hardware-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔌 Hardware Setup
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#power-on-and-login" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        💻 Power On and Login
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#diagnostic-tool-beam" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔍 Diagnostic Tool: BEAM
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔍 Diagnostic Tool: BEAM">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#manual-ip-configuration-static-ip" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🌐 Manual IP Configuration (Static IP)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#running-the-tests" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ✅ Running the Tests
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🚀 Next Steps
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vitis-toolchain-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🚀 Setup: AMD Vitis Toolchain
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🛠️ Field Notes
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    🛠️ Field Notes
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../notes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../notes/template/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ➕ Contribute a Field Note
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../notes/vek280-boot-issue/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🛠️ AMD VEK280 Boot Issue
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../notes/vek280-power-failure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🛠️ AMD VEK280 Power Failure
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../notes/vitis-installer-freeze/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🛠️ Vivado/Vitis Installer Freeze
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../projects/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🔬 Projects & Code
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../talks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    📚 Talks & Resources
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../directory/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    👥 Community Directory
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://github.com/Toulouse-Embedded-Accel/HEAT/discussions" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    💬 Discussions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#useful-resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔗 Useful Resources
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📋 Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#understanding-the-dual-system-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🧠 Understanding the Dual-System Architecture
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#versal-first-boot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🏁 Versal First Boot
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🏁 Versal First Boot">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sd-card-preparation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🛠️ SD Card Preparation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hardware-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔌 Hardware Setup
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#power-on-and-login" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        💻 Power On and Login
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#diagnostic-tool-beam" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔍 Diagnostic Tool: BEAM
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔍 Diagnostic Tool: BEAM">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#manual-ip-configuration-static-ip" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🌐 Manual IP Configuration (Static IP)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#running-the-tests" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ✅ Running the Tests
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🚀 Next Steps
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/Toulouse-Embedded-Accel/HEAT/edit/main/docs/quickstarts/vek280-setup.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="quickstart-amd-versal-vek280">🚀 Quickstart: AMD Versal VEK280</h1>
+<p><strong>Author:</strong> Julien Posso (ONERA)<br />
+<strong>Date:</strong> 2026-03<br />
+<strong>Tags:</strong> <code>AMD-Versal</code> <code>VEK280</code> <code>Quickstart</code> <code>Getting Started</code> <code>Setup</code></p>
+<p>This guide supplements the official AMD documentation by providing a high-level system view necessary to avoid common pitfalls during initial setup.</p>
+<h2 id="useful-resources">🔗 Useful Resources</h2>
+<ul>
+<li>📺 <a href="https://www.youtube.com/watch?v=N3ZAhXxo-4s">Official VEK280 Introduction Video</a></li>
+<li>📖 <a href="https://docs.amd.com/r/en-US/ug1612-vek280-eval-bd">Official VEK280 Board User Guide (UG1612)</a></li>
+<li>🛠️ <a href="../../notes/vek280-boot-issue/">Field Note: Known VEK280 Boot Issues</a></li>
+<li>🛠️ <a href="../../notes/vek280-power-failure/">Field note: VEK280 Power Failure</a></li>
+</ul>
+<h2 id="prerequisites">📋 Prerequisites</h2>
+<p>Before proceeding with the board setup, it is mandatory to have your development environment ready. Without this, you will not be able to communicate with the board via UART or JTAG.</p>
+<ul>
+<li><strong>Vitis &amp; USB Drivers:</strong> You must have the AMD Vitis Toolchain and the necessary USB/JTAG cable drivers installed. If you haven't done this yet, please follow our dedicated guide: <a href="../vitis-toolchain-setup/">🚀 Setup: AMD Vitis Toolchain</a>.</li>
+</ul>
+<h2 id="understanding-the-dual-system-architecture">🧠 Understanding the Dual-System Architecture</h2>
+<p>Unlike Zynq boards, the Versal features <strong>two distinct SoCs</strong> running in parallel:</p>
+<ol>
+<li><strong>System Controller (Zynq UltraScale+ MPSoC):</strong><ul>
+<li><strong>Role:</strong> Manages board peripherals (power, clocks, BEAM).</li>
+<li><strong>Boot:</strong> Boots from factory-preconfigured <strong>eMMC</strong>.</li>
+<li><strong>Interface:</strong> Has its own dedicated Ethernet port and UART.</li>
+</ul>
+</li>
+<li><strong>Versal MPSoC (Main Target):</strong><ul>
+<li><strong>Role:</strong> The primary processor for your research, AI engines, and custom logic.</li>
+<li><strong>Boot:</strong> Typically boots from <strong>JTAG</strong> or the <strong>SD Card</strong>. It also handles fan speed control.</li>
+</ul>
+</li>
+</ol>
+<hr />
+<h2 id="versal-first-boot">🏁 Versal First Boot</h2>
+<div class="admonition warning">
+<p class="admonition-title">Note on the 'In-Box' Quickstart</p>
+<p>The QR code provided in the box (linking to <a href="http://www.amd.com/vek280-start">amd.com/vek280-start</a>) points to a guide that contains a MRMAC Example Design. This design requires an <strong>FMC card</strong> which is not provided with the standard VEK280 Evaluation Kit.</p>
+</div>
+<h3 id="sd-card-preparation">🛠️ SD Card Preparation</h3>
+<ol>
+<li><strong>Download</strong> the official VEK280 SD pre-built Image (<code>.wic</code>) which contains the board platform: tested with <a href="https://www.xilinx.com/member/forms/download/xef.html?filename=xilinx-v2025.1_vek280_sdimage.zip">v2025.1 SD Image</a>; other versions available <a href="https://xilinx-wiki.atlassian.net/wiki/spaces/A/pages/18842316">here</a>.</li>
+<li><strong>Unzip</strong> the downloaded archive.</li>
+<li><strong>Flash</strong> using <strong><a href="https://etcher.balena.io/">Balena Etcher</a></strong> to write the WIC image to your micro SD card.</li>
+</ol>
+<p><strong>Tips for using Balena Etcher on Linux:</strong></p>
+<ol>
+<li>Download the x64 (64-bit) (zip) version.</li>
+<li>Extract it and navigate to the <code>balenaEtcher-linux-x64</code> folder.</li>
+<li>Launch the application from a terminal with: <code>./balena-etcher --no-sandbox</code></li>
+<li>Superuser authentication will be required to flash the card.</li>
+</ol>
+<h3 id="hardware-setup">🔌 Hardware Setup</h3>
+<p><img alt="Standard VEK280 setup" src="https://vitisai.docs.amd.com/en/latest/_images/target_board_updated.png" /></p>
+<p>Follow the standard setup, noting these specific connections:</p>
+<ul>
+<li><strong>Ethernet:</strong> Connect to the port located at the <strong>top right</strong> of the board (System Controller Ethernet) instead of the bottom-left shown in the image above (Versal Ethernet),facing a switch or your computer.</li>
+<li><strong>USB:</strong> Connecting the board's USB port to your computer will reveal <strong>3 COM ports (Windows) / 4 interfaces (Linux)</strong>:<ul>
+<li><strong>Interface 0</strong>: JTAG (not shown on Windows COM ports).</li>
+<li><strong>COM N / Interface 1:</strong> Versal UART0 – User Linux (SD Boot).</li>
+<li><strong>COM N+1 / Interface 2:</strong> Versal UART1 via PL – Unused for now.</li>
+<li><strong>COM N+2 / Interface 3:</strong> System Controller UART – Management Linux (eMMC Boot).</li>
+</ul>
+</li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">🐧 Linux Specifics</p>
+<p>To avoid port shifting (e.g., <code>/dev/ttyUSB1</code> becoming <code>ttyUSB5</code>), use persistent paths. You can list them with <code>ls -l /dev/serial/by-path/</code>.
+Open your terminals with:</p>
+<ul>
+<li><strong>Versal:</strong> <code>tio /dev/serial/by-path/*-usb-0:*:1.1-port0</code></li>
+<li><strong>System Controller:</strong> <code>tio /dev/serial/by-path/*-usb-0:*:1.3-port0</code></li>
+</ul>
+</div>
+<h3 id="power-on-and-login">💻 Power On and Login</h3>
+<ol>
+<li><strong>Terminal:</strong> Open two serial console instances (e.g., Putty, Minicom or Tio) on <strong>Versal UART</strong> and <strong>System Controller UART</strong>.<ul>
+<li><em>Settings:</em> 115200 baud, 8N1.</li>
+</ul>
+</li>
+<li><strong>Power:</strong> Toggle the <strong>SW13</strong> power switch (located near the power connector) to ON.</li>
+<li><strong>Observation:</strong><ul>
+<li><strong>Dual Boot:</strong> You should see two Linux systems booting in parallel on your terminals.</li>
+<li><strong>Status:</strong> Power Good LEDs should turn green.</li>
+<li><strong>Prompt:</strong> You should reach a login prompt on both Versal and System Controller UART (on System Controller UART, <strong>press Enter</strong> after the terminal displays the <em>BEAM Tool Web Address</em> to reach the login prompt).</li>
+</ul>
+</li>
+</ol>
+<p><strong>Credentials:</strong></p>
+<ul>
+<li><strong>System Controller:</strong> Choose your preferred credentials.</li>
+<li><strong>Versal:</strong> Use the default Petalinux credentials:<ul>
+<li><strong>Username:</strong> <code>petalinux</code></li>
+<li><strong>Password:</strong> Choose your password at the first prompt.</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2 id="diagnostic-tool-beam">🔍 Diagnostic Tool: BEAM</h2>
+<p>The <strong>BEAM</strong> (Board Evaluation and Management) tool allows you to verify board health. Access it via the System Controller web interface. Refer to the <a href="https://xilinx-wiki.atlassian.net/wiki/spaces/A/pages/2273738753/System+Controller+Updates#Launching-the-GUI">Xilinx Wiki</a> for the official guide. Below are HEAT-specific tips.</p>
+<h3 id="manual-ip-configuration-static-ip">🌐 Manual IP Configuration (Static IP)</h3>
+<p>If the System Controller fails to get an IP via DHCP, you must set a static IPv4 address manually via the UART.</p>
+<ol>
+<li>On the <strong>System Controller terminal</strong>, create the network file:
+    <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>sudo<span class="w"> </span>vi<span class="w"> </span>/etc/systemd/network/20-wired.network
+</code></pre></div></li>
+<li>Insert the following content (<strong>Adapt the IP/Gateway</strong> to your local network):
+    <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">[Match]</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="na">Name</span><span class="o">=</span><span class="s">eth0</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="k">[Network]</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="na">Address</span><span class="o">=</span><span class="s">192.168.1.173/24</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="na">Gateway</span><span class="o">=</span><span class="s">192.168.1.1</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="na">ConfigureWithoutCarrier</span><span class="o">=</span><span class="s">yes</span>
+</code></pre></div>
+    !!! tip "Quick VI Tutorial"
+        1. Press <strong>"i"</strong> to enter insert mode.
+        2. Edit your file.
+        3. Press <strong>Escape</strong> to return to command mode.
+        4. Type <strong>":wq"</strong> and press Enter to save and exit.</li>
+<li>Restart the System Controller:
+    <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>sudo<span class="w"> </span>reboot
+</code></pre></div>
+Once rebooted, the BEAM URL should be accessible from a browser: <blockquote>
+<p><strong>🔗 BEAM Web Address:</strong> <code>http://&lt;your_ip&gt;:50002</code></p>
+</blockquote>
+</li>
+</ol>
+<h3 id="running-the-tests">✅ Running the Tests</h3>
+<p>In the BEAM web interface, under <strong>"Test the Board"</strong>:</p>
+<ul>
+<li><strong>Board Settings:</strong> Manage GPIOs, clocks, FMC, and read real-time voltage/power consumption (e.g., <code>VCC_INT</code>).</li>
+<li><strong>Board Interface Test:</strong> Essential for new boards. It tests LEDs, switches, etc.</li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Important information</p>
+<p>Instructions (e.g., <em>"Press SWx"</em>) are displayed on the <strong>Versal UART</strong>. If you are not watching that terminal, some tests will appear to hang or fail.</p>
+</div>
+<hr />
+<h2 id="next-steps">🚀 Next Steps</h2>
+<p>Once your board is running, learn how to deploy AI models:</p>
+<ul>
+<li><a href="https://vitisai.docs.amd.com/en/latest/index.html">Official Vitis-AI Documentation</a></li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.top", "content.code.copy", "content.action.edit", "navigation.expand", "navigation.sections"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
