@@ -55,25 +55,32 @@ Unlike Zynq boards, the Versal features **two distinct SoCs** running in paralle
 Follow the standard setup, noting these specific connections:
 
 * **Ethernet:** Connect to the port located at the **top right** of the board (System Controller Ethernet) instead of the bottom-left shown in the image above (Versal Ethernet),facing a switch or your computer.
-* **USB:** Connecting the board's USB port to your computer will reveal **3 COM ports**:
-    * **Port N (Interface 0):** Versal UART0 – User Linux (SD Boot).
-    * **Port N+1 (Interface 1):** Versal UART1 via PL – Unused for now.
-    * **Port N+2 (Interface 2):** System Controller UART – Management Linux (eMMC Boot).
+* **USB:** Connecting the board's USB port to your computer will reveal **3 COM ports (Windows) / 4 interfaces (Linux)**:
+    * **Interface 0**: JTAG (not shown on Windows COM ports).
+    * **COM N / Interface 1:** Versal UART0 – User Linux (SD Boot).
+    * **COM N+1 / Interface 2:** Versal UART1 via PL – Unused for now.
+    * **COM N+2 / Interface 3:** System Controller UART – Management Linux (eMMC Boot).
+
+!!! tip "🐧 Linux Specifics"
+    To avoid port shifting (e.g., `/dev/ttyUSB1` becoming `ttyUSB5`), use persistent paths `ls -l /dev/serial/by-path/`. Open your terminals with:
+    * **Versal:** `tio /dev/serial/by-path/*-usb-0:*:1.1-port0`
+    * **System Controller:** `tio /dev/serial/by-path/*-usb-0:*:1.3-port0`
+    *(Note: The suffix `:1.1` and `:1.3` matches the hardware Interface ID above).*
 
 ### 💻 Power On and Login
 
-1.  **Terminal:** Open two serial console instances (e.g., Putty or Minicom) on **Port N** and **Port N+2**.
+1.  **Terminal:** Open two serial console instances (e.g., Putty, Minicom or Tio) on **Versal UART** and **System Controller UART**.
     * *Settings:* 115200 baud, 8N1.
 2.  **Power:** Toggle the **SW13** power switch (located near the power connector) to ON.
 3.  **Observation:**
     * **Dual Boot:** You should see two Linux systems booting in parallel on your terminals.
     * **Status:** Power Good LEDs should turn green.
-    * **Prompt:** You should reach a login prompt on both COM N and COM N+2 (on COM N+2, **press Enter** after the terminal displays the *BEAM Tool Web Address* to reach the login prompt).
+    * **Prompt:** You should reach a login prompt on both Versal and System Controller UART (on System Controller UART, **press Enter** after the terminal displays the *BEAM Tool Web Address* to reach the login prompt).
 
 **Credentials:**
 
-* **System Controller (COM N+2):** Choose your preferred credentials.
-* **Versal UART (COM N):** Use the default Petalinux credentials:
+* **System Controller:** Choose your preferred credentials.
+* **Versal:** Use the default Petalinux credentials:
     * **Username:** `petalinux`
     * **Password:** Choose your password at the first prompt.
 
@@ -86,7 +93,7 @@ The **BEAM** (Board Evaluation and Management) tool allows you to verify board h
 ### 🌐 Manual IP Configuration (Static IP)
 If the System Controller fails to get an IP via DHCP, you must set a static IPv4 address manually via the UART.
 
-1.  On the **System Controller terminal (COM N+2)**, create the network file:
+1.  On the **System Controller terminal**, create the network file:
     ```bash
     sudo vi /etc/systemd/network/20-wired.network
     ```
@@ -119,7 +126,7 @@ In the BEAM web interface, under **"Test the Board"**:
 * **Board Interface Test:** Essential for new boards. It tests LEDs, switches, etc.
 
 !!! warning "Important information"
-    Instructions (e.g., *"Press SWx"*) are displayed on the **Versal UART (COM N)**. If you are not watching that terminal, some tests will appear to hang or fail.
+    Instructions (e.g., *"Press SWx"*) are displayed on the **Versal UART**. If you are not watching that terminal, some tests will appear to hang or fail.
 
 ---
 
