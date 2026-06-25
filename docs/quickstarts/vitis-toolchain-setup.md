@@ -83,7 +83,7 @@ sudo usermod -a -G plugdev $USER
 **2\. Understanding AMD Licenses** AMD's licensing model has evolved, which often causes confusion:
 
 - **Vivado ML Standard (Free):** Does **not** require a `.lic` file anymore. The authorization to synthesize and route for entry/mid-range chips (Zynq-7000, standard MPSoCs) is hardcoded into the binaries.
-- **Vivado ML Enterprise (Paid/Floating):** Required for synthesis targeting large architectures like Virtex or Versal AI Edge ([full list in the UG973](https://docs.amd.com/r/en-US/ug973-vivado-release-notes-install-license/Supported-Devices), e.g., the **XCVE2802** of the **VEK280** evaluation board).
+- **Vivado ML Enterprise (Paid/Floating):** Required for synthesis targeting large architectures like Virtex or Versal AI Edge ([full list in the UG973](https://docs.amd.com/r/2025.2-English/ug973-vivado-release-notes-install-license/Supported-Devices), e.g., the **XCVE2802** of the **VEK280** evaluation board).
 - **AIE-ML NPU IP License (Free):** Required `.lic` to use Vitis-AI 5.1 and above that includes pre-compiled AMD Neural Processing Units (NPU) exploiting both Versal AI engines and programmable logic.
 - **AI Engine Tools License (Free):** Required `.lic` to target custom implementations on Versal AI engines.
 
