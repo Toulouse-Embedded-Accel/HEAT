@@ -8,7 +8,7 @@ This guide supplements the official AMD documentation by providing a high-level 
 
 ## 🔗 Useful Resources
 * 📖 [Official VCK190 Board User Guide (UG1366)](https://docs.amd.com/r/en-US/ug1366-vck190-eval-bd)
-*  [VCK190 Quickstart Guide](http://www.amd.com/vck190-start)
+* 🌐 [VCK190 Quickstart Guide](http://www.amd.com/vck190-start)
 
 ## 📋 Prerequisites
 
