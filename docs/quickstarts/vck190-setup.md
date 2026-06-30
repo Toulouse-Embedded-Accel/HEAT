@@ -50,11 +50,6 @@ Unlike Zynq boards, the Versal features **two distinct SoCs** running in paralle
 ### 🔌 Hardware Setup
 ![Standard VCK190 setup](https://docs.amd.com/api/khub/maps/AsLG7VfT7S1HdAAfQi~I4A/resources/MA1071kG0gpybeSTzurDBQ-AsLG7VfT7S1HdAAfQi~I4A/content?Ft-Calling-App=ft%2Fturnkey-portal&Ft-Calling-App-Version=5.3.20&filename=rqj1654108314579.image)
 
-| Switch Block | Target | Mode | Configuration |
-| :--- | :--- | :--- | :--- |
-| **SW1** | Versal Main | **QSPI Boot** (Usine) | `ON, OFF, OFF, OFF` |
-| **SW11** | System Controller | **SD Boot** | `ON, OFF, OFF, OFF` |
-
 Follow the standard setup above (only the system controller SD card is needed).
 
 Connecting the board's USB port to your computer will reveal **3 COM ports (Windows) / 4 interfaces (Linux)**:
